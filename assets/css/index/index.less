@@ -1,0 +1,103 @@
+
+.page-index {
+    position: relative;
+    .show-info {
+        position: absolute;
+        left: 50%;
+        width: 1200px;
+        margin-left: -600px;
+        top: 0;
+        z-index: 2;
+        height: 0;
+        .showBasic {
+            background-color: rgba(255, 255, 255, 0.8);
+            height: 300px;
+        }
+        .show-link {
+            .showBasic;
+            width: 230px;
+            float:left;
+            .b_listrow {
+                height: 20px;
+                line-height: 20px;
+                width: 216px;
+                margin-left: 14px;
+                margin-top: 9px;
+                overflow: hidden;
+                a {
+                    color: #666;
+                    font-size: 12px;
+                    margin-right: 8px;
+                    text-decoration: none;
+                    b {
+                        color: #444;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .show-advert {
+            .showBasic;
+            width: 170px;
+            float: right;
+            .showAing {
+                background-color: #fff;
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100px;
+                    padding: 23px 30px 17px 30px;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #888;
+                    text-decoration: none;
+                    border-bottom: 1px solid #eee;
+                    box-sizing: border-box;
+                    &:hover {
+                        background-color: #eee;
+                    }
+                }
+                p {
+                    width: 100%;
+                    font-size: 18px;
+                    font-weight: bold;
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                    color: #666;
+                    border-bottom: 1px solid #ddd;
+                    line-height: 1;
+                }
+                em {
+                    color: #ff3366;
+                    font-weight: bold;
+                    font-size: 16px;
+                    margin: 0px 2px;
+                }
+                b {
+                    font-family: Tahoma;
+                    font-size: 19px;
+                    margin: 0px 2px;
+                    vertical-align: -1px;
+                }
+                .jiu {
+                    background: #FDECFA;
+                    p {
+                        color: #D300DB;
+                        border-color: #F699F9;
+                    }
+                }
+                .pai {
+                    background: #FFF9F9;
+                    p {
+                        color: #C43D3A;
+                        border-color: #F3BABA;
+                    }
+                }
+            }
+        }
+    }
+}

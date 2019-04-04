@@ -1,0 +1,16 @@
+html,body,div,ul,ol,li,img,a,span,em,i,del,center,strong,form,label,dl,dt,dd,hr,mark,code,input,button,textarea,h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;border:0;font-style:normal;outline:0;}
+body{background:#F2F2F2;font:12px/1 Tahoma,Arial,"\5fae\8f6f\96c5\9ed1";color:#444;word-wrap:break-word;word-break:break-all;}
+input,label,select,textarea,button{font:12px/1 "\5fae\8f6f\96c5\9ed1",Tahoma;color:#444;}
+input,button,label,textarea{vertical-align:middle;resize:none;outline:none;}
+img.gray{-webkit-filter:grayscale(100%);filter:grayscale(100%);}
+table{border-collapse:collapse;border-spacing:0;}
+ul,ol,li,img{list-style:none;border:0;outline:none;}
+a{text-decoration:none;color:#333;outline:0;}
+a:hover{text-decoration:underline;}
+.clear{clear:both;}
+.w1200 { width: 1200px; margin:0 auto; position: relative;}
+.w1200::after {content: ''; display: block; clear: both;}
+.fl {float: left;}
+.fr {float: right;}
+.el-header,.el-main,.el-footer {padding: 0;}
+.text-center {text-align: center;}

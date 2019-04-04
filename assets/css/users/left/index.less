@@ -1,0 +1,95 @@
+
+.leftnav {
+    float: left;
+    width: 200px;
+    height: 700px;
+    padding: 15px;
+    background: #FFF;
+    .u_avatar {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        .avt {
+            width: 88px;
+            height: 88px;
+            margin: 8px auto;
+            overflow: hidden;
+            img {
+                width: 80px;
+                height: 80px;
+                padding: 3px;
+                background: #FFF;
+                border: 1px solid #f2f2f2;
+                border-radius: 44px;
+            }
+        }
+        .name {
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            overflow: hidden;
+            a {
+                color: #666;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            img {
+                vertical-align: -1px;
+                margin-left: 3px;
+            }
+        }
+        .view {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin-top: 10px;
+            overflow: hidden;
+            a {
+                padding: 4px 15px 5px;
+                background: #2EC50B;
+                color: #FFF;
+                font-size: 15px;
+                border-radius: 3px;
+                &:hover {
+                    background: #ff3366;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .uleft_nav {
+        width: 70%;
+        margin: 0px auto;
+        overflow: hidden;
+        li {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-bottom: 1px dashed #e5e5e5;
+            a {
+                color: #555;
+                font-size: 17px;
+                letter-spacing: 1px;
+                text-decoration: none;
+                display: block;
+            }
+            &:hover {
+                a {
+                    color: #FF3366;
+                }
+            }
+            &:first-child {
+                border-top: 1px dashed #e5e5e5;
+            }
+            &.nuxt-link-active {
+                a {
+                    color: #FF3366;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}

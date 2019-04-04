@@ -1,0 +1,83 @@
+
+.bading {
+    .txt {
+        margin: 5px 0;
+        line-height: 40px;
+        &::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        strong {
+            font-weight: bold;
+            width: 60px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            color: #444;
+            float: left;
+        }
+        .el-input {
+            width: 170px;
+        }
+    }
+    .iconice {
+        margin-top: 5px;
+    }
+    .bd-box {
+        padding: 20px;
+        border: 1px solid #f5f5f5;
+        background: #f9f9f9;
+    }
+    .bd-mg {
+        margin: 25px 0;
+    }
+    .bd-info {
+        .bd-box;
+    }
+    .bd-phone,.bd-QQ,.bd-sina {
+        .bd-box;
+        .bd-mg;
+        h6 {
+            width: 100%;
+            font-size: 15px;
+            color: #444;
+            font-weight: bold;
+            line-height: 2em;
+            em {
+                color: #ff3366;
+                font-weight: normal;
+            }
+        }
+        p {
+            float: left;
+            line-height: 30px;
+            color: #999;
+            overflow: hidden;
+            font-size: 14px;
+        }
+    }
+    button {
+        margin-top: 20px;
+    }
+    .mts {
+        margin-top: 15px;
+    }
+    .bdings {
+        .el-dialog {
+            width:340px;
+        }
+        button {
+            margin: 0;
+        }
+        .code-btn {
+            margin-bottom: 0;
+            .el-input {
+                width: calc(100% - 130px);
+            }
+            button {
+                float: right;
+            }
+        }
+    }
+}
