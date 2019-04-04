@@ -1,0 +1,46 @@
+.listchoice {
+    padding: 20px;
+    background-color: #fff;
+    overflow: hidden;
+    li {
+        float: left;
+        width: 370px;
+        height: 290px;
+        margin-left: 20px;
+        border: 1px solid #fcfcfc;
+        position: relative;
+        overflow: hidden;
+        &:first-child {
+            margin: 0;
+        }
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100%;
+            height: auto;
+            transform: translate(-50%, -50%);
+        }
+        h6 {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 9;
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            background: rgba(0,0,0,0.8);
+            text-align: center;
+            overflow: hidden;
+            font-size: 17px;
+            color: yellow;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        &:hover {
+            h6 {
+                color: #fff;
+            }
+        }
+    }
+}

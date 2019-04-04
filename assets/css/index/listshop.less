@@ -1,0 +1,111 @@
+.listshop {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    overflow: hidden;
+    li {
+        float: left;
+        width: 285px;
+        height: 430px;
+        margin: 0px 10px 25px;
+        font-size: 13px;
+        background: #FFF;
+        overflow: hidden;
+        a {
+            text-decoration: none;
+        }
+        .atop {
+            position: relative;
+            img {
+                width: 100%;
+                height: 285px;
+                border: 0;
+            }
+            .tag {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 9;
+                width: 37px;
+                height: 37px;
+                overflow: hidden;
+                &.brand {
+                    background: url(~assets/img/ico_brand.png) no-repeat;
+                }
+                &.new {
+                    background: url(~assets/img/ico_item.png) no-repeat;
+                }
+            }
+            .hbase {
+                width: 100%;
+                padding: 8px;
+                overflow: hidden;
+                box-sizing: border-box;
+            }
+            h5 {
+                .hbase;
+                line-height: 22px;
+                i {
+                    float: left;
+                    width: 24px;
+                    height: 22px;
+                    background: url(~assets/img/ico_item.png) no-repeat;
+                    &.tb {
+                        background-position:  -63px 3px;
+                    }
+                    &.tm {
+                        background-position:  -63px -22px;
+                    }
+                }
+            }
+            h6 {
+                .hbase;
+                color: #888;
+                font-size: 13px;
+                line-height: 28px;
+                span {
+                    &.fr {
+                        line-height: 34px;
+                    }
+                }
+                font {
+                    font-family: Arial;
+                    margin-right: 1px;
+                    strong {
+                        font-size: 19px;
+                        font-family: Arial;
+                        color: #444;
+                        margin-right: 3px;
+                    }
+                }
+                em {
+                    font-size: 32px;
+                    font-family: Arial;
+                    margin: 0px 2px;
+                    color: #FF2255;
+                    vertical-align: -1px;
+                }
+            }
+        }
+        .abtn {
+            display: block;
+            margin-top: 12px;
+            a {
+                display: block;
+                width: 100%;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                color: #fff;
+                font-size: 17px;
+                background: #FF464E;
+                border-bottom: 1px dashed #FCABAE;
+                text-decoration: none;
+                overflow: hidden;
+                &:hover {
+                    background: #F0373F;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
