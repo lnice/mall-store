@@ -40,8 +40,16 @@
           <div class="ring">每天<em>0:00</em>准时上新</div>
         </index-title>
         <template>
-          <listshop :listinfo="listShopInfo"/>
+          <listshop :listinfo="listShop.data"/>
         </template>
+        <div class="page-center">
+          <el-pagination
+          background
+          layout="prev, pager, next"
+          :total="listShop.total">
+          </el-pagination>
+          <br />
+        </div>
       </div>
     </div>
   </section>
@@ -103,29 +111,32 @@ export default {
         title: '4月2日—精选100款阔腿裤，舒适透气，时尚范~',
         link: '/item/1891'
       }],
-      listShopInfo: [{
-        oImg: 'http://img.alicdn.com/imgextra/i3/2024058652/TB2fb1fdMfH8KJjy1zcXXcTzpXa_!!2024058652.jpg_300x300.jpg',
-        title: '苹果通用弯头数据线1.2m*2条装',
-        link: '/item/54116',
-        rateLink: '/item/5111',
-        costPrice: 24,
-        ratePrice: 14,
-        market: 207114,
-        coupon: 10,
-        source: 'tm',
-        tag: 'new'
-      },{
-        oImg: 'http://img.alicdn.com/imgextra/i2/1063264201/TB2QJW5opkoBKNjSZFEXXbrEVXa_!!1063264201.jpg_300x300.jpg',
-        title: '妃琳卡  持久保湿口红5支礼盒装',
-        link: '/item/54116',
-        rateLink: '/item/5111',
-        costPrice: 56,
-        ratePrice: 55,
-        market: 207114,
-        coupon: 5,
-        source: 'tb',
-        tag: 'brand'
-      }]
+      listShop: {
+        total: 100,
+        data: [{
+          oImg: 'http://img.alicdn.com/imgextra/i3/2024058652/TB2fb1fdMfH8KJjy1zcXXcTzpXa_!!2024058652.jpg_300x300.jpg',
+          title: '苹果通用弯头数据线1.2m*2条装',
+          link: '/item/54116',
+          rateLink: '/item/5111',
+          costPrice: 24,
+          ratePrice: 14,
+          market: 207114,
+          coupon: 10,
+          source: 'tm',
+          tag: 'new'
+        },{
+          oImg: 'http://img.alicdn.com/imgextra/i2/1063264201/TB2QJW5opkoBKNjSZFEXXbrEVXa_!!1063264201.jpg_300x300.jpg',
+          title: '妃琳卡  持久保湿口红5支礼盒装',
+          link: '/item/54116',
+          rateLink: '/item/5111',
+          costPrice: 56,
+          ratePrice: 55,
+          market: 207114,
+          coupon: 5,
+          source: 'tb',
+          tag: 'brand'
+        }]
+      }
     }
   },
   components: {

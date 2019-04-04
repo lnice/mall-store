@@ -26,6 +26,7 @@ import MyHeader from '@/components/public/header/index.vue'
 import MyFooter from '@/components/public/footer/index.vue'
 import leftNavBar from '@/components/users/left/index.vue'
 export default {
+  middleware: 'userAuth',
   components: {
     MyHeader,
     MyFooter,

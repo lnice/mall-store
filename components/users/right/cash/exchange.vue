@@ -48,56 +48,5 @@ export default {
 </script>
 
 <style lang="less">
-.exchange {
-    padding:40px 10%;
-    h3 {
-        margin-bottom: 30px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    p {
-        margin-bottom: 15px;
-        font-size: 15px;
-        font-weight: normal;
-        color: #666;
-        b {
-            color: #555;
-            margin-right: 3px;
-        }
-        strong {
-            color: #ff3366;
-            margin-right: 2px;
-        }
-    }
-    .txt {
-        margin-bottom: 15px;
-        font-size: 15px;
-        font-weight: normal;
-        color: #666;
-        &::after {
-            content:'';
-            display: block;
-            clear:both;
-        }
-        .el-select {
-            .el-input {
-                width: 100px;
-            }
-        }
-        .el-input {
-            width: 200px;
-        }
-    }
-    .btn {
-        width: 266px;
-        button {
-            width: 100%;
-            background-color: #FF4646;
-            border-color:#FF4646;
-            &:hover {
-                background-color:#ff1144
-            }
-        }
-    }
-}
+@import '~assets/css/users/cash/exchange.less';
 </style>

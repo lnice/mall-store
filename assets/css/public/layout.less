@@ -1,4 +1,15 @@
+@color: #FF464E;
 
-.layout-default {
-    position: relative;
+.page-center {
+    text-align: center; 
+    padding: 10px 0;
+    .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+        background-color: #fff;
+    }
+    .el-pagination.is-background .el-pager li:not(.disabled).active {
+        background-color: @color;
+    }
+    .el-pagination.is-background .el-pager li:not(.active):hover {
+        color: @color;
+    }
 }

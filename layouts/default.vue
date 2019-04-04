@@ -10,6 +10,7 @@
       <my-footer/>
     </el-footer>
     <sign-in v-if="$store.state.sign.isPopUp.basic"/>
+    <fixed-break/>
   </el-container>
 </template>
 
@@ -17,11 +18,13 @@
 import MyHeader from '@/components/public/header/index.vue'
 import MyFooter from '@/components/public/footer/index.vue'
 import SignIn from '@/components/public/sign/index.vue'
+import fixedBreak from '@/components/public/fixed/break.vue'
 export default {
   components: {
     MyHeader,
     MyFooter,
-    SignIn
+    SignIn,
+    fixedBreak
   },
   computed: {
     
@@ -30,5 +33,6 @@ export default {
 </script>
 
 
-<style>
+<style lang="less">
+@import '~assets/css/public/layout.less';
 </style>

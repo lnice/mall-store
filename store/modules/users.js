@@ -1,5 +1,5 @@
 const state = () => ({
-    isPtc: false
+    isPtc: false // 是否签到
 })
 
 const mutations = {
