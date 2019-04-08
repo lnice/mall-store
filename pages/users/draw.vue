@@ -27,7 +27,8 @@ export default {
                 link: '/users/draw'
             },{
                 title: '立即去领奖>>',
-                link: '/jiang'
+                link: '/accept',
+                target: '_blank'
             }]
         }
     },

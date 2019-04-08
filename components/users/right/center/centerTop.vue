@@ -82,7 +82,7 @@ export default {
         },
         todayDate () {
             let month = new Date().getMonth() + 1;
-            let day = new Date().getDay();
+            let day = new Date().getDate();
             if(month < 10) {
                 month = '0' + month;
             }

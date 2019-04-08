@@ -1,7 +1,7 @@
 <template>
     <ul class="list-title">
         <nuxt-link v-for="(item, idx) in list" :key="idx" :to="item.link" tag="li">
-            <a>{{ item.title }}</a>
+            <a :target="item.target || '_self'">{{ item.title }}</a>
         </nuxt-link>
         <li class="alllink">
             <slot name="right"></slot>

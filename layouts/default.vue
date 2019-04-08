@@ -26,8 +26,17 @@ export default {
     SignIn,
     fixedBreak
   },
-  computed: {
-    
+  head () {
+    return {
+      title: 'head - mall title',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'mall'
+        }
+      ]
+    }
   }
 }
 </script>

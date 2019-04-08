@@ -8,8 +8,10 @@
         <li class="brand"><a href="#" target="_self" class="no">品牌券</a></li>
         <li class="quan"><a href="#" target="_self" class="no">优惠专题</a></li>
         <li class="new"><a href="#" target="_self" class="no">今日新券</a></li>
-        <li class="jiang"><a href="#" target="_self" class="no">订单领奖</a></li>
-        <li class="app"><a href="#" target="_blank" class="no">手机APP</a></li>
+        <li class="jiang">
+          <nuxt-link to="/accept" class="no">订单领奖</nuxt-link>
+        </li>
+        <li class="app"><a href="/app" target="_blank" class="no">手机APP</a></li>
         <li class="user">
           <nuxt-link to="/users/" class="no" exact>签到有奖</nuxt-link>
         </li>
