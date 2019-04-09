@@ -4,10 +4,16 @@
         <li class="index">
           <nuxt-link to="/" class="no" exact>最新优惠券</nuxt-link>
         </li>
-        <li class="jiu"><a href="#" target="_self" class="no">9.9包邮</a></li>
-        <li class="brand"><a href="#" target="_self" class="no">品牌券</a></li>
+        <li class="jiu">
+          <nuxt-link to="/postage" class="no">9.9包邮</nuxt-link>
+        </li>
+        <li class="brand">
+          <nuxt-link to="/brand" class="no">品牌券</nuxt-link>
+        </li>
         <li class="quan"><a href="#" target="_self" class="no">优惠专题</a></li>
-        <li class="new"><a href="#" target="_self" class="no">今日新券</a></li>
+        <li class="new">
+          <nuxt-link to="/item/new" class="no">今日新券</nuxt-link>
+        </li>
         <li class="jiang">
           <nuxt-link to="/accept" class="no">订单领奖</nuxt-link>
         </li>
