@@ -8,17 +8,17 @@
         <div class="jiang_body">
             <h1>凡是通过泡美丽去淘宝（天猫）购物的订单，都可以领奖哟，省钱到底！</h1>
             <div class="jiang_form">
-                <h6 v-if="true">
-                    <input type="text" name="" value="" placeholder="请输入淘宝订单号">
-                    <button type="submit">点击领奖</button>
+                <h6 v-if="!drawSucc">
+                    <input type="text" placeholder="请输入淘宝订单号" v-model="oTxtInfo">
+                    <button type="submit" @click="subAccept">点击领奖</button>
                 </h6>
                 <h4 v-else>
-                    <a href="javascript:;">继续领奖>></a>
+                    <a href="javascript:;" @click="cnces">继续领奖>></a>
                     <a href="javascript:;">查看领奖>></a>
                     <span>
                         <a href="javascript:;" target="_blank">如何领更多泡币？</a>
                     </span>
-                    <i></i>
+                    <i @click="cnces"></i>
                 </h4>
             </div>
             <div class="jiang_box">
@@ -51,22 +51,16 @@
                     <table class="table_jiang">
                     <tbody>
                         <tr>
-                        <th width="10%">排名</th>
-                        <th width="33%">昵称</th>
-                        <th width="20%">累计奖励</th>
-                        <th width="20%">泡币价值</th>
+                            <th width="10%">排名</th>
+                            <th width="33%">昵称</th>
+                            <th width="20%">累计奖励</th>
+                            <th width="20%">泡币价值</th>
                         </tr>
-                        <tr>
-                        <td>1</td>
-                        <td><a href="javascript:;" target="_blank">小丰色木每子</a></td>
-                        <td><b>719272</b></td>
-                        <td><em>￥1,563.63</em></td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td><a href="javascript:;" target="_blank">小丰色木每子</a></td>
-                        <td><b>719272</b></td>
-                        <td><em>￥1,563.63</em></td>
+                        <tr v-for="(item, idx) in rankData" :key="idx">
+                            <td>{{ idx }}</td>
+                            <td><a href="javascript:;" target="_blank">{{ item.name }}</a></td>
+                            <td><b>{{ item.total }}</b></td>
+                            <td><em>￥{{ amountFilter( item.price ) }}</em></td>
                         </tr>
                     </tbody>
                     </table>
@@ -84,7 +78,47 @@
 
 <script>
 export default {
-
+    data () {
+        return {
+            oTxtInfo: '',
+            drawSucc: false,
+            rankData: [{
+                name: '小丰色木每子',
+                total: 719272,
+                price: 1000.63
+            },{
+                name: '小丰色木每子2',
+                total: 719272,
+                price: 999.99
+            }]
+        }
+    },
+    methods: {
+        amountFilter (num) {
+            if(isNaN(Number(num))) return num;
+            if(Number(num) < 1000) return num;
+            num = Number(num);
+            let arr = num.toFixed(2).split('.');
+            let intPrice = arr[0].toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+            num = intPrice + '.' + arr[1];
+            return num;
+        },
+        subAccept () {
+            if (!this.oTxtInfo) {
+                this.$message.error('订单号不能为空哦~');
+            } else if (isNaN(Number(this.oTxtInfo))) {
+                this.$message.error('订单号输入有误~');
+            } else {
+                console.log(this.oTxtInfo);
+                this.$message.success('领取成功~');
+                this.drawSucc = true;
+            }
+        },
+        cnces () {
+            this.oTxtInfo = '';
+            this.drawSucc = false;
+        }
+    }
 }
 </script>
 

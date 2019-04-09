@@ -87,13 +87,13 @@ export default {
       }],
       listSmallInfo: [{
         oImg: 'http://img.alicdn.com/imgextra/i1/2041105374/O1CN01VqxL3H1pZKxS49FMB_!!2041105374.jpg_300x300.jpg',
-        link: '/item/44739',
+        link: '/detail/44739',
         title: '【皎洁】四件套电热蚊香液3液+1器蚊香',
         price: '6.9',
         people: '366055'
       },{
         oImg: 'http://img.alicdn.com/imgextra/i2/3036670797/O1CN01krf98i1Hl4AdD7AlS_!!3036670797.jpg_300x300.jpg',
-        link: '/item/44739',
+        link: '/detail/44739',
         title: '【皎洁】四件套电热蚊香液3液+1器蚊香',
         price: '6.9',
         people: '366055'
@@ -101,23 +101,23 @@ export default {
       listChoiceInfo: [{
         oImg: 'http://img.alicdn.com/imgextra/i4/2973632120/O1CN01O2RKGo1RX09CqjcCg_!!2973632120.jpg_400x400.jpg',
         title: '4月4日—精选90款春夏睡衣，透气舒适好看~',
-        link: '/item/1891'
+        link: '/detail/1891'
       },{
         oImg: 'http://img.alicdn.com/imgextra/i3/3496221698/O1CN01VymHpU1OPj0kzXKAB_!!3496221698.jpg_400x400.jpg',
         title: '4月3日—精选80多款时尚小白鞋，简单大方~',
-        link: '/item/1891'
+        link: '/detail/1891'
       },{
         oImg: 'http://img.alicdn.com/imgextra/i3/4279712705/O1CN01E8dF5t1VqvrkgyobB_!!4279712705.jpg_400x400.jpg',
         title: '4月2日—精选100款阔腿裤，舒适透气，时尚范~',
-        link: '/item/1891'
+        link: '/detail/1891'
       }],
       listShop: {
         total: 100,
         data: [{
           oImg: 'http://img.alicdn.com/imgextra/i3/2024058652/TB2fb1fdMfH8KJjy1zcXXcTzpXa_!!2024058652.jpg_300x300.jpg',
           title: '苹果通用弯头数据线1.2m*2条装',
-          link: '/item/54116',
-          rateLink: '/item/5111',
+          link: '/detail/54116',
+          rateLink: '/detail/5111',
           costPrice: 24,
           ratePrice: 14,
           market: 207114,
@@ -127,8 +127,8 @@ export default {
         },{
           oImg: 'http://img.alicdn.com/imgextra/i2/1063264201/TB2QJW5opkoBKNjSZFEXXbrEVXa_!!1063264201.jpg_300x300.jpg',
           title: '妃琳卡  持久保湿口红5支礼盒装',
-          link: '/item/54116',
-          rateLink: '/item/5111',
+          link: '/detail/54116',
+          rateLink: '/detail/5111',
           costPrice: 56,
           ratePrice: 55,
           market: 207114,
