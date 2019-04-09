@@ -59,9 +59,9 @@
 import banner from '@/components/index/banner.vue'
 import bannerLink from '@/components/index/link.vue'
 import indexTitle from '@/components/index/title.vue'
-import listsmall from '@/components/index/listsmall.vue'
-import listchoice from '@/components/index/choice.vue'
-import listshop from '@/components/index/listshop.vue'
+import listchoice from '@/components/list/choice.vue'
+import listsmall from '@/components/list/listsmall.vue'
+import listshop from '@/components/list/listshop.vue'
 export default {
   data () {
     return {
