@@ -10,7 +10,9 @@
         <li class="brand">
           <nuxt-link to="/brand" class="no">品牌券</nuxt-link>
         </li>
-        <li class="quan"><a href="#" target="_self" class="no">优惠专题</a></li>
+        <li class="quan">
+          <nuxt-link to="/dissert" class="no">优惠专题</nuxt-link>
+        </li>
         <li class="new">
           <nuxt-link to="/item/new" class="no">今日新券</nuxt-link>
         </li>

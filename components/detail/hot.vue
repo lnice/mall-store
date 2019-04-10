@@ -1,9 +1,9 @@
 <template>
     <div class="detail-hot">
-        <h3>今日最热</h3>
+        <h3 v-if="title" :style="`color:${color || '#606266'}`">{{ title }}</h3>
         <ul class="list">
-            <li v-for="(item, idx) in data.slice(0, 5)" :key="idx">
-                <a href="#">
+            <li v-for="(item, idx) in data.slice(0, num)" :key="idx">
+                <a :href="item.link" target="_blank">
                     <img :src="item.oImg">
                     <div class="info">
                         <h5>{{ item.title }}</h5>
@@ -18,7 +18,10 @@
 <script>
 export default {
     props: {
-        data: Array
+        data: Array,
+        title: String,
+        color: String,
+        num: Number
     }
 }
 </script>

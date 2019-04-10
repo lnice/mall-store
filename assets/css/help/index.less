@@ -1,0 +1,101 @@
+.help {
+    background: #f7f7f7;
+    margin: 30px auto;
+    border: 1px solid #eee;
+    height: auto;
+    .help-left {
+        h3 {
+            height: 80px;
+            line-height: 80px;
+            font-size: 24px;
+            color: #aaa;
+            background: #f9f9f9;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: normal;
+        }
+        ul {
+            overflow: hidden;
+            li {
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 70px;
+                    line-height: 70px;
+                    text-align: center;
+                    font-size: 18px;
+                    color: #777;
+                    border-top: 1px solid #fafafa;
+                    border-bottom: 1px solid #f0f0f0;
+                    text-decoration: none;
+                }
+                &.nuxt-link-active {
+                    a {
+                        background: #FFF;
+                        color: #FF3366;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .help-right {
+        padding: 20px 64px;
+        background-color: #fff;
+        min-height: 700px;
+        .help-cont {
+            h1 {
+                width: 100%;
+                height: 60px;
+                line-height: 50px;
+                font-size: 24px;
+                color: #555;
+                font-weight: bold;
+                letter-spacing: 2px;
+                border-bottom: 1px dashed #ccc;
+            }
+            p {
+                margin-top: 15px;
+                font-size: 15px;
+            }
+            h5 {
+                font-size: 16px;
+                margin-top: 30px;
+                font-weight: 600;
+            }
+            h3,h4 {
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 2em;
+            }
+            h3 {
+                margin-top: 30px;
+            }
+            img {
+                max-width: 100%;
+                vertical-align: middle;
+                margin-bottom: 2px;
+            }
+            em {
+                color: #FF3366;
+            }
+            dt {
+                font-size: 14px;
+                font-weight: 600;
+                margin-top: 30px;
+            }
+            dd {
+                padding: 5px 10px;
+                background: #f4f4f4;
+                border: 1px solid #f2f2f2;
+                font-size: 13px;
+                margin-top: 30px;
+                line-height: 24px;
+            }
+            a {
+                color: #0C5BC7;
+                cursor: pointer;
+            }
+        }
+    }
+}

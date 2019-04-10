@@ -18,10 +18,10 @@
             </div>
         </template>
         <div class="fr">
-            <a href="#">新手帮助</a>|
-            <a href="#" rel="nofollow">收藏本站</a>|
-            <a href="#" target="_blank" class="kf">在线客服</a>|
-            <a href="#" target="_blank" class="red">卖家报名&gt;&gt;</a>
+            <nuxt-link to="/help/novice">新手帮助</nuxt-link>|
+            <a href="javascript:;" @click="collect" rel="nofollow">收藏本站</a>|
+            <nuxt-link to="/help/service" target="_blank" class="kf">在线客服</nuxt-link>|
+            <nuxt-link to="/help/seller" target="_blank" class="red">卖家报名&gt;&gt;</nuxt-link>
         </div>
     </div>
 </template>
@@ -39,6 +39,19 @@ export default {
         },
         registerPop () {
             this.$store.dispatch('sign/register')
+        },
+        collect () {
+            let url = window.document.location.href;
+            let title = document.title;
+            try {
+                window.external.addFavorite(url, title);
+            } catch(e) {
+                try {
+                    window.sidebar.addPanel(url, title);
+                } catch(e) {
+                    alert("加入收藏失败，请使用Ctrl+D进来添加");
+                }
+            }
         }
     }
 }

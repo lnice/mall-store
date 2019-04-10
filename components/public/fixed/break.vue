@@ -1,7 +1,7 @@
 <template>
     <div class="fixed-break">
         <nuxt-link title="签到送钱" to="/users/"></nuxt-link>
-        <a class="k" href="#" target="_blank" title="联系客服"></a>
+        <nuxt-link class="k" to="/help/toll" target="_blank" title="联系客服"></nuxt-link>
         <a class="x" href="#" target="_blank" title="点击下载"></a>
         <a class="b" @click="breaktop" title="返回顶部"></a>
     </div>

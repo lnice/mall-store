@@ -6,7 +6,7 @@
                 <shop-info :data="infoData"/>
             </el-col>
             <el-col :span="6">
-                <detail-hot :data="hotList"/>
+                <detail-hot :data="hotList" title="今日最热" :num="5"/>
             </el-col>
         </el-row>
         <detail-list title="大家还看了" :data="listData"/>
@@ -46,26 +46,37 @@ export default {
                 keys: ['飞碟', '螺口', '飞利浦', '小球', '电灯']
             },
             hotList: [{
+                link: '/item/123',
                 oImg: 'http://img.alicdn.com/imgextra/i1/2041105374/O1CN01VqxL3H1pZKxS49FMB_!!2041105374.jpg_60x60.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
                 salesNum: 698511
             },{
+                link: '/item/123',
                 oImg: 'http://img.alicdn.com/imgextra/i4/2219509495/O1CN012K0l6OljsiyCs2a_!!2219509495.jpg_60x60.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
                 salesNum: 698511
             },{
+                link: '/item/123',
                 oImg: 'http://img.alicdn.com/imgextra/i1/2041105374/O1CN01VqxL3H1pZKxS49FMB_!!2041105374.jpg_60x60.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
                 salesNum: 698511
             },{
+                link: '/item/123',
                 oImg: 'http://img.alicdn.com/imgextra/i4/2219509495/O1CN012K0l6OljsiyCs2a_!!2219509495.jpg_60x60.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
                 salesNum: 698511
             },{
+                link: '/item/123',
+                oImg: 'http://img.alicdn.com/imgextra/i1/2041105374/O1CN01VqxL3H1pZKxS49FMB_!!2041105374.jpg_60x60.jpg',
+                title: '【皎洁】四件套3液+1器电热器1111',
+                price: 9.9,
+                salesNum: 698511
+            },{
+                link: '/item/123',
                 oImg: 'http://img.alicdn.com/imgextra/i1/2041105374/O1CN01VqxL3H1pZKxS49FMB_!!2041105374.jpg_60x60.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
