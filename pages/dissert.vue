@@ -79,37 +79,37 @@ export default {
                 total: 100,
                 data: [{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 },{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 },{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 },{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 },{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 },{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 },{
                     title: '4月10日—精选100款精美配饰，出去玩，美呀~',
-                    link: '/item/123',
+                    link: '/topic/123',
                     oImg: 'http://img.alicdn.com/imgextra/i4/772461325/O1CN01Wv2VEZ1LetI0KPoOz_!!772461325.jpg_200x200.jpg',
                     intro: '马上就要5.1了，出去玩当然离不开小饰品了~~今天小美给大家精选了100多款时尚小饰品，今年时尚新款，棒球帽，太阳帽，耳钉，太阳镜，手表，小首饰等，自带'
                 }]

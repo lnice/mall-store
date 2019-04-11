@@ -7,10 +7,10 @@
                     正在兑换：<a href="cashlist">{{ dataInfo.awarding }}</a>
                 </h1>
                 <h2>
-                    <a href="http://www.paomeili.com/jiang" target="_blank" class="b">快速赚泡币</a>
+                    <nuxt-link to="/accept" target="_blank" class="b">快速赚泡币</nuxt-link>
                     <nuxt-link to="/users/cash" class="c">泡币兑换</nuxt-link>
                     <nuxt-link to="/users/integral">总收入：{{ dataInfo.totalearn }}</nuxt-link>
-                    <nuxt-link to="/users/cashlist">已兑换：{{ dataInfo.already }}({{ dataInfo.already / 10 }}元)</nuxt-link>
+                    <nuxt-link to="/users/historylist">已兑换：{{ dataInfo.already }}({{ dataInfo.already / 10 }}元)</nuxt-link>
                 </h2>
                 <div class="uc_load"><label>我的等级</label>
                     <h5>
