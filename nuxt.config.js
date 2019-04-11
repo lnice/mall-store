@@ -52,6 +52,9 @@ module.exports = {
   build: {
     transpile: [/^element-ui/],
     extractCSS: { allChunks: true },
+    filenames: {
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[chunkhash].js'
+    },
     /*
     ** You can extend webpack config here
     */
