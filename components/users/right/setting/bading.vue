@@ -43,7 +43,7 @@
         <div class="bd-QQ">
             <el-row>
                 <el-col :span="3">
-                    <img src="@/assets/img/ico_QQ.png" class="iconice">
+                    <img src="@/assets/img/ico_qq.png" class="iconice">
                 </el-col>
                 <el-col :span="16" class="mts">
                     <h6>QQ登录：<em>{{ badingData.QQ || '未绑定' }}</em></h6>
