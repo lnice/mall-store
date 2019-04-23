@@ -7,7 +7,7 @@
                     <img :src="item.oImg">
                     <div class="info">
                         <h5>{{ item.title }}</h5>
-                        <p>¥<b>{{ item.price }}</b><span>已售{{ item.salesNum }}件</span></p>
+                        <p>¥<b>{{ item.price }}</b><span>已售{{ item.market }}件</span></p>
                     </div>
                 </a>
             </li>

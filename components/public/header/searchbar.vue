@@ -21,13 +21,13 @@
                     <div class="hot" v-show="isFocus">
                         <div v-if="!this.search">
                             <a href="#" class="t">请输入<em>关键字</em>或粘贴<em>淘宝商品标题</em>，即可搜券！大家正在搜：</a>
-                            <a :href="item.tipLink" v-for="(item, idx) in hotData" :key="idx">{{item.tipCont}}</a>
+                            <a :href="item.link" v-for="(item, idx) in hotData" :key="idx">{{item.title}}</a>
                         </div>
                         <div v-else>
                             <h4>相关热搜：</h4>
                             <ul class="hotshowlist" v-if="showData.length > 0">
                                 <li v-for="(item, idx) in showData" :key="idx">
-                                    <a :href="item.href">{{item.title}}</a>
+                                    <a :href="item.link">{{item.title}}</a>
                                 </li>
                             </ul>
                             <div class="vhotnone" v-else>
@@ -51,14 +51,14 @@ export default {
         isFocus: false,
         search: '',
         hotData: [
-            { tipCont: '耳机', tipLink: '#'},
-            { tipCont: '零食', tipLink: '#'},
-            { tipCont: '面膜', tipLink: '#'},
+            { title: '耳机', link: '#'},
+            { title: '零食', link: '#'},
+            { title: '面膜', link: '#'},
         ],
         showData: [
-            { title: '标题内容XXX1', href: '#'},
-            { title: '标题内容XXX2', href: '#'},
-            { title: '标题内容XXX3', href: '#'}
+            { title: '标题内容XXX1', link: '#'},
+            { title: '标题内容XXX2', link: '#'},
+            { title: '标题内容XXX3', link: '#'}
         ]
     }
   },

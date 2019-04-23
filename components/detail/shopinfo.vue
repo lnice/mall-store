@@ -21,7 +21,7 @@
                     券后：<b>{{ data.ratePrice }}</b>元
                     <i v-if="data.frank">包邮</i>
                     &nbsp;
-                    月销<u>{{ data.salesNum }}</u>件
+                    月销<u>{{ data.market }}</u>件
                 </div>
                 <div class="i-tips">先<em>领券</em>后下单，拍下自动减<em>{{ data.coupon }}</em>元！免费领券，有券赶紧抢，手慢无~</div>
                 <div class="i-buy">
