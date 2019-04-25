@@ -132,19 +132,19 @@ export default {
                 oImg: 'http://img.alicdn.com/imgextra/i3/1603372607/O1CN01vtlttL1V832rEEJCl_!!1603372607.jpg_70x70.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
-                salesNum: 698231
+                market: 698231
             },{
                 link: '/item/123',
                 oImg: 'http://img.alicdn.com/bao/uploaded/TB1fpXSk3HqK1RjSZFEXXcGMXXa.png_70x70.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
-                salesNum: 698231
+                market: 698231
             },{
                 link: '/item/123',
                 oImg: 'http://img.alicdn.com/imgextra/i3/2454117151/O1CN01Xdery722hCmPbY2oZ_!!2454117151.jpg_70x70.jpg',
                 title: '【皎洁】四件套3液+1器电热器1111',
                 price: 9.9,
-                salesNum: 698231
+                market: 698231
             }]
         }
     },

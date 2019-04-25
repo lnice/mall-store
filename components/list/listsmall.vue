@@ -1,13 +1,13 @@
 <template>
     <ul class="listsmall">
         <li v-for="(item, idx) in listinfo" :key="idx">
-            <nuxt-link :to="item.link">
-                <img :src="item.oImg" alt="">
+            <nuxt-link :to="item.click_url">
+                <img :src="item.pic_url" alt="">
                 <h5>{{ item.title }}</h5>
                 <h6>
                     <i>￥</i>
                     <b>{{ item.price }}</b>
-                    <span>{{ item.people }}人抢</span>
+                    <span>{{ item.volume }}人抢</span>
                 </h6>
             </nuxt-link>
         </li>

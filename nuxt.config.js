@@ -37,15 +37,18 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/axios'
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    'cookie-universal-nuxt',
+    // With options
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
   ],
-
   /*
   ** Build configuration
   */
@@ -63,5 +66,9 @@ module.exports = {
     */
     extend(config, ctx) {
     }
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+    NODE_ENV: process.env.NODE_ENV
   }
 }

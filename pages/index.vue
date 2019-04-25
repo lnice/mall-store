@@ -62,8 +62,18 @@ import indexTitle from '@/components/index/title.vue'
 import listchoice from '@/components/list/choice.vue'
 import listsmall from '@/components/list/listsmall.vue'
 import listshop from '@/components/list/listshop.vue'
+import axios from 'axios'
+
+
 export default {
   data () {
+    // axios.get(`${process.env.BASE_URL}/goodslists/1/10/1/volume/desc`).then((data) => {
+    //   if(data.status === 200) {
+        
+    //   }
+    // }).catch((err) => {
+    //   console.log(err)
+    // })
     return {
       imstLink: [{
         name: '今日上新',
@@ -84,19 +94,6 @@ export default {
       },{
         name: '优惠券百科',
         link: '/brand'
-      }],
-      listSmallInfo: [{
-        oImg: 'http://img.alicdn.com/imgextra/i1/2041105374/O1CN01VqxL3H1pZKxS49FMB_!!2041105374.jpg_300x300.jpg',
-        link: '/detail/44739',
-        title: '【皎洁】四件套电热蚊香液3液+1器蚊香',
-        price: '6.9',
-        people: '366055'
-      },{
-        oImg: 'http://img.alicdn.com/imgextra/i2/3036670797/O1CN01krf98i1Hl4AdD7AlS_!!3036670797.jpg_300x300.jpg',
-        link: '/detail/44739',
-        title: '【皎洁】四件套电热蚊香液3液+1器蚊香',
-        price: '6.9',
-        people: '366055'
       }],
       listChoiceInfo: [{
         oImg: 'http://img.alicdn.com/imgextra/i4/2973632120/O1CN01O2RKGo1RX09CqjcCg_!!2973632120.jpg_400x400.jpg',
@@ -139,6 +136,25 @@ export default {
       }
     }
   },
+  async asyncData (context) {
+      let { data } = await axios({
+        method: 'get',
+        url: `${process.env.BASE_URL}/goodslists/1/10/1/volume/desc`
+      });
+      console.log(data.data.goods_list)
+      return {
+        listSmallInfo : data.data.goods_list
+      }
+  },
+  // asyncData () {
+  //   axios.get(`${process.env.BASE_URL}/goodslists/1/10/1/volume/desc`).then((data) => {
+  //     if(data.status === 200) {
+        
+  //     }
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
+  // },
   components: {
     banner,
     bannerLink,

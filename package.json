@@ -17,6 +17,8 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "cookie-universal-nuxt": "^2.0.14",
     "core-js": "^2.6.5",
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.11",
