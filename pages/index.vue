@@ -138,23 +138,18 @@ export default {
   },
   async asyncData (context) {
       let { data } = await axios({
-        method: 'get',
-        url: `${process.env.BASE_URL}/goodslists/1/10/1/volume/desc`
+        method: 'post',
+        url: `/goodslists`,
+        data: {
+          page: 1,
+          pageSize: 10,
+        }
       });
       console.log(data.data.goods_list)
       return {
-        listSmallInfo : data.data.goods_list
+        listSmallInfo :  data.data.goods_list
       }
   },
-  // asyncData () {
-  //   axios.get(`${process.env.BASE_URL}/goodslists/1/10/1/volume/desc`).then((data) => {
-  //     if(data.status === 200) {
-        
-  //     }
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
-  // },
   components: {
     banner,
     bannerLink,

@@ -10,7 +10,6 @@
 import listTitle from '@/components/users/right/listtitle.vue'
 import historyTable from '@/components/users/right/historylist/table.vue'
 export default {
-    layout: 'users',
     data () {
         return {
             listTitle: [{

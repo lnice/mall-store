@@ -32,7 +32,6 @@ export default {
             }]
         }
     },
-    layout: 'users',
     components: {
         listTitle,
         drawTable

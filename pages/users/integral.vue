@@ -18,7 +18,6 @@ export default {
             }]
         }
     },
-    layout: 'users',
     components: {
         listTitle,
         integralTable

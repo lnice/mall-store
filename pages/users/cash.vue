@@ -15,7 +15,6 @@
 import listTitle from '@/components/users/right/listtitle.vue'
 import exChange from '@/components/users/right/cash/exchange.vue'
 export default {
-    layout: 'users',
     data () {
         return {
             listTitle: [{

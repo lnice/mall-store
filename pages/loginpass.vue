@@ -12,10 +12,8 @@
         <el-form-item class="txt-mobile" prop="mobile">
           <el-input v-model="user.mobile" autocomplete="off" placeholder="手机号"></el-input>
         </el-form-item>
-        <el-form-item class="txt-code" prop="code">
-          <el-input v-model="user.code" style="width:55%" autocomplete="off" placeholder="验证码"></el-input>
-          <el-button v-if="!codeBtn.isSend" @click="getCode('user')" type="primary">获取验证码</el-button>
-          <el-button class="n" :disabled="true" v-else>重新发送(<i>{{ codeBtn.countTime }}</i>)</el-button>
+        <el-form-item class="txt-password" prop="password">
+          <el-input v-model="user.password" autocomplete="off" placeholder="密码" show-password></el-input>
         </el-form-item>
         <el-form-item class="submit-box">
           <el-button @click="submitForm('user')">登录</el-button>
@@ -26,13 +24,16 @@
 </template>
 
 <script>
+import axios from 'axios'
+import Cookie from 'js-cookie'
 export default {
     layout: 'blank',
     data () {
         return {
           user: {
-            mobile: '',
-            code: ''
+            mobile: '16607974217',
+            password: '123456',
+            error: null
           },
           rules: {
             mobile: [
@@ -49,54 +50,42 @@ export default {
                 message: '手机号填写有误'
               }
             ],
-            code: [
-              { required: true, message: '请输入验证码', trigger: 'blur' },
-              { min: 4, max: 4, message: '验证码输入有误', trigger: 'blur' },
-              {
-                validator: (rule, value, callback) => {
-                  if(true) {
-                    callback();
-                  }else {
-                    callback(new Error());
-                  }
-                },
-                message: '验证码不正确',
-                trigger: 'blur'
-              }
+            password: [
+              { required: true, message: '请输入密码', trigger: 'blur' },
+              { min: 6, max: 99, message: '请输入6位数以上的密码', trigger: 'blur' },
             ]
-          },
-          codeBtn: {
-            isSend: false,
-            countTime: 60,
-            timer: null
           }
         }
     },
     methods: {
-      getCode (formName) {
-        this.$refs[formName].validateField(['mobile'],(valid) => {
-          if(!valid) {
-            this.$message({
-              message: '验证码发送成功',
-              type: 'success'
-            });
-            this.codeBtn.isSend = true;
-            this.codeBtn.timer = setInterval(() => {
-              if (this.codeBtn.countTime > 1) {
-                this.codeBtn.countTime --;
-              } else {
-                clearInterval(this.codeBtn.timer);
-                this.codeBtn.isSend = false;
-                this.codeBtn.countTime = 60;
-              }
-            }, 1000)
-          }
-        });
-      },
       submitForm(formName) {
+        let {
+          mobile,
+          password,
+        } = this.user;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            
+            try {
+              axios.post('/userlogin', {
+                  mobile,
+                  password,
+                  type: 1,
+                  code: ''
+              }).then((res) => {
+                let { data } = res;
+                if(data.code === 200) {
+                  this.$message.success(data.msg);
+                  this.$store.dispatch('login', res);
+                }else {
+                  this.$message.error(data.msg);
+                }
+              }).catch((err) => {
+                console.log(err)
+              })
+              this.user.error = null
+            } catch (e) {
+              this.user.error = e.message
+            }
           } else {
             console.log('error')
             return false;

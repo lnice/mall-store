@@ -17,7 +17,6 @@
 import listTitle from '@/components/users/right/listtitle.vue'
 import introduce from '@/components/users/right/benefits/introduce.vue'
 export default {
-    layout: 'users',
     data () {
         return {
             listTitle: [{

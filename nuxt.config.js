@@ -1,6 +1,5 @@
 const pkg = require('./package')
 
-
 module.exports = {
   mode: 'universal',
 
@@ -38,16 +37,13 @@ module.exports = {
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/axios'
+    '@/plugins/axios',
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    'cookie-universal-nuxt',
-    // With options
-    ['cookie-universal-nuxt', { alias: 'cookiz' }],
   ],
   /*
   ** Build configuration

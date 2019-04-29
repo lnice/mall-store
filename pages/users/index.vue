@@ -17,7 +17,6 @@
 import centerTop from '@/components/users/right/center/centerTop.vue'
 import centerTable from '@/components/users/right/center/table.vue'
 export default {
-    layout: 'users',
     components: {
         centerTop,
         centerTable

@@ -8,26 +8,26 @@
       </h1>
       <h2>亲，欢迎注册泡美丽~~</h2>
       <h3>用户注册！</h3>
-      <el-form :model="register" :rules="rules" ref="register" class="demo-register">
+      <el-form :model="user" :rules="rules" ref="user" class="demo-user">
         <el-form-item class="txt-mobile" prop="mobile">
-          <el-input v-model="register.mobile" autocomplete="off" placeholder="请输入手机号"></el-input>
+          <el-input v-model="user.mobile" autocomplete="off" placeholder="请输入手机号"></el-input>
         </el-form-item>
         <el-form-item class="txt-password" prop="password">
-          <el-input v-model="register.password" autocomplete="off" placeholder="请输入密码" show-password></el-input>
+          <el-input v-model="user.password" autocomplete="off" placeholder="请输入密码" show-password></el-input>
         </el-form-item>
         <el-form-item class="txt-repass" prop="repass">
-          <el-input v-model="register.repass" autocomplete="off" placeholder="再次输入密码" show-password></el-input>
+          <el-input v-model="user.repass" autocomplete="off" placeholder="再次输入密码" show-password></el-input>
         </el-form-item>
         <el-form-item class="txt-invite">
-          <el-input v-model="register.invite_code" autocomplete="off" placeholder="邀请码（没有可不填）" ></el-input>
+          <el-input v-model="user.invite_code" autocomplete="off" placeholder="邀请码（没有可不填）" ></el-input>
         </el-form-item>
         <el-form-item class="txt-code" prop="code">
-          <el-input v-model="register.code" style="width:55%" autocomplete="off" placeholder="验证码"></el-input>
-          <el-button v-if="!codeBtn.isSend" @click="getCode('register')" type="primary">获取验证码</el-button>
+          <el-input v-model="user.code" style="width:55%" autocomplete="off" placeholder="验证码"></el-input>
+          <el-button v-if="!codeBtn.isSend" @click="getCode('user')" type="primary">获取验证码</el-button>
           <el-button class="n" :disabled="true" v-else>重新发送(<i>{{ codeBtn.countTime }}</i>)</el-button>
         </el-form-item>
         <el-form-item class="submit-box">
-          <el-button @click="submitForm('register')">注册</el-button>
+          <el-button @click="submitForm('user')">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -36,11 +36,12 @@
 
 <script>
 import axios from 'axios'
+import Cookie from 'js-cookie'
 export default {
     layout: 'blank',
     data () {
         return {
-          register: {
+          user: {
             mobile: '11111111111',
             password: '123456',
             repass: '123456',
@@ -69,7 +70,7 @@ export default {
             repass: [
               {
                 validator: (rule, value, callback) => {
-                  if(this.register.password === value) {
+                  if(this.user.password === value) {
                     callback();
                   }else {
                     callback(new Error());
@@ -80,7 +81,7 @@ export default {
             ],
             code: [
               { required: true, message: '请输入验证码', trigger: 'blur' },
-              { min: 4, max: 4, message: '验证码输入有误', trigger: 'blur' },
+              { min: 4, max: 6, message: '验证码输入有误', trigger: 'blur' },
               {
                 validator: (rule, value, callback) => {
                   if(true) {
@@ -104,48 +105,72 @@ export default {
     methods: {
       getCode (formName) {
         this.$refs[formName].validateField(['mobile'],(valid) => {
-          console.log(1)
           if(!valid) {
-            this.$message({
-              message: '验证码发送成功',
-              type: 'success'
-            });
-            this.codeBtn.isSend = true;
-            this.codeBtn.timer = setInterval(() => {
-              if (this.codeBtn.countTime > 1) {
-                this.codeBtn.countTime --;
-              } else {
-                clearInterval(this.codeBtn.timer);
-                this.codeBtn.isSend = false;
-                this.codeBtn.countTime = 60;
+            let { mobile } = this.user;
+            axios({
+              method: 'post',
+              url: '/smsSend',
+              data: {
+                mobile,
+                type: 1
               }
-            }, 1000)
+            })
+            .then(({ data }) => {
+              if(data.code === 200) {
+                this.codeBtn.isSend = true;
+                this.codeBtn.timer = setInterval(() => {
+                  if (this.codeBtn.countTime > 1) {
+                    this.codeBtn.countTime --;
+                  } else {
+                    clearInterval(this.codeBtn.timer);
+                    this.codeBtn.isSend = false;
+                    this.codeBtn.countTime = 60;
+                  }
+                }, 1000);
+                this.$message.success(data.msg);
+              } else {
+                this.$message.error(data.msg);
+              }
+            })
+            .catch((err) => {
+              this.$message.error(err.message)
+            })
+
           }
         });
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            let {
+              mobile,
+              password,
+              code,
+              invite_code,
+            } = this.user;
             axios({
               method: 'post',
               url: '/userRegister',
               data: {
-                mobile: this.register.mobile,
-                password: this.register.password,
-                code: this.register.code,
-                invite_code: this.register.invite_code,
+                mobile,
+                password,
+                code,
+                invite_code,
                 type: 0
               }
             })
             .then(({ data }) => {
-              if(data.code > 0) {
+              if(data.code === 200) {
                 this.$message.success(data.msg);
-                console.log(data)
+                Cookie.set('token', data.data.token);
+                
+                window.location.href = '/users/';
               } else {
                 this.$message.error(data.msg);
               }
             })
             .catch((err) => {
+                this.$message.error('错误:' + err);
               console.log(err)
             })
           } else {

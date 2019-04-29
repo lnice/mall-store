@@ -10,7 +10,6 @@
 import listTitle from '@/components/users/right/listtitle.vue'
 import bading from '@/components/users/right/setting/bading.vue'
 export default {
-    layout: 'users',
     data () {
         return {
             listTitle: [{
