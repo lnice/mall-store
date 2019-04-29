@@ -17,6 +17,8 @@
         </el-form-item>
         <el-form-item class="submit-box">
           <el-button @click="submitForm('user')">登录</el-button>
+          <nuxt-link to="/register" class="fl">手机号注册</nuxt-link>
+          <nuxt-link to="/login" class="fr">验证码登录 >></nuxt-link>
         </el-form-item>
       </el-form>
     </div>
@@ -33,7 +35,6 @@ export default {
           user: {
             mobile: '16607974217',
             password: '123456',
-            error: null
           },
           rules: {
             mobile: [
@@ -65,27 +66,23 @@ export default {
         } = this.user;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            try {
               axios.post('/userlogin', {
                   mobile,
                   password,
                   type: 1,
                   code: ''
-              }).then((res) => {
-                let { data } = res;
+              }).then(({ data }) => {
                 if(data.code === 200) {
                   this.$message.success(data.msg);
-                  this.$store.dispatch('login', res);
+                  this.$store.dispatch('login', data).then(() => {
+                    this.$router.push('/users/')
+                  });
                 }else {
                   this.$message.error(data.msg);
                 }
               }).catch((err) => {
-                console.log(err)
+                  this.$message.error(err.message);
               })
-              this.user.error = null
-            } catch (e) {
-              this.user.error = e.message
-            }
           } else {
             console.log('error')
             return false;

@@ -19,6 +19,7 @@
         </el-form-item>
         <el-form-item class="submit-box">
           <el-button @click="submitForm('user')">登录</el-button>
+          <nuxt-link to="/loginpass" class="fr">密码登录 >></nuxt-link>
         </el-form-item>
       </el-form>
     </div>
@@ -26,13 +27,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     layout: 'blank',
     data () {
         return {
           user: {
-            mobile: '',
-            code: ''
+            mobile: '16607974217',
+            code: '359292'
           },
           rules: {
             mobile: [
@@ -51,7 +53,7 @@ export default {
             ],
             code: [
               { required: true, message: '请输入验证码', trigger: 'blur' },
-              { min: 4, max: 4, message: '验证码输入有误', trigger: 'blur' },
+              { min: 4, max: 6, message: '验证码输入有误', trigger: 'blur' },
               {
                 validator: (rule, value, callback) => {
                   if(true) {
@@ -76,27 +78,54 @@ export default {
       getCode (formName) {
         this.$refs[formName].validateField(['mobile'],(valid) => {
           if(!valid) {
-            this.$message({
-              message: '验证码发送成功',
-              type: 'success'
-            });
-            this.codeBtn.isSend = true;
-            this.codeBtn.timer = setInterval(() => {
-              if (this.codeBtn.countTime > 1) {
-                this.codeBtn.countTime --;
+            let { mobile } = this.user;
+            axios.post('/smsSend', {
+              mobile,
+              type: 2
+            }).then(({ data }) => {
+              if(data.code === 200) {
+                this.$message.success(data.msg);
+                this.codeBtn.isSend = true;
+                this.codeBtn.timer = setInterval(() => {
+                  if (this.codeBtn.countTime > 1) {
+                    this.codeBtn.countTime --;
+                  } else {
+                    clearInterval(this.codeBtn.timer);
+                    this.codeBtn.isSend = false;
+                    this.codeBtn.countTime = 60;
+                  }
+                }, 1000);
+                console.log(data)
               } else {
-                clearInterval(this.codeBtn.timer);
-                this.codeBtn.isSend = false;
-                this.codeBtn.countTime = 60;
+                this.$message.error(data.msg)
               }
-            }, 1000)
+            }).catch((err) => {
+              this.$message.error(err.message)
+            });
+
           }
         });
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            
+            let { mobile, code } = this.user
+            axios.post('/userlogin', {
+              mobile,
+              code,
+              type: 2
+            }).then(({ data }) => {
+              if(data.code === 200) {
+                this.$message.success(data.msg)
+                this.$store.dispatch('login', data).then(() => {
+                  this.$router.push('/users/')
+                });
+              } else {
+                this.$message.error(data.msg)
+              }
+            }).catch((err) => {
+              this.$message.error(err.message)
+            })
           } else {
             console.log('error')
             return false;

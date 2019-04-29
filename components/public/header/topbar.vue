@@ -2,7 +2,7 @@
     <div class="w1200">
         <template v-if="user">
             <div class="fl">
-                <nuxt-link class="name" to="/user/"><img src="@/assets/img/v0.gif">{{ user.nickname }}</nuxt-link>|
+                <nuxt-link class="name" to="/users/"><img src="@/assets/img/v0.gif">{{ user.nickname }}</nuxt-link>|
                 <nuxt-link to="/user/footmark">我的足迹</nuxt-link>|
                 <a href="#">我的领奖</a>|
                 <a href="#">我的泡币</a>|

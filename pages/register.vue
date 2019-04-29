@@ -42,7 +42,7 @@ export default {
     data () {
         return {
           user: {
-            mobile: '11111111111',
+            mobile: '15768983252',
             password: '123456',
             repass: '123456',
             code: '1234',
@@ -148,30 +148,25 @@ export default {
               code,
               invite_code,
             } = this.user;
-            axios({
-              method: 'post',
-              url: '/userRegister',
-              data: {
+            axios.post('/userRegister', {
                 mobile,
                 password,
                 code,
                 invite_code,
                 type: 0
-              }
-            })
-            .then(({ data }) => {
+              }).then(({ data }) => {
+              console.log(data)
               if(data.code === 200) {
                 this.$message.success(data.msg);
-                Cookie.set('token', data.data.token);
-                
-                window.location.href = '/users/';
+                this.$store.dispatch('login', data).then(() => {
+                  this.$router.push('/users/')
+                });
               } else {
                 this.$message.error(data.msg);
               }
             })
             .catch((err) => {
-                this.$message.error('错误:' + err);
-              console.log(err)
+                this.$message.error(err.message);
             })
           } else {
             console.log('error')

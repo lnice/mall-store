@@ -40,9 +40,8 @@ const store = () => new Vuex.Store({
                 }
             }
         },
-        async login ({ commit }, datainfo) {
+        async login ({ commit }, data) {
             try {
-                let { data } = datainfo;
                 if(data && data.code === 200) {
                     let utils = data.data;
                     Cookie.set('token', utils.token)
@@ -50,7 +49,6 @@ const store = () => new Vuex.Store({
                     const user = await axios.post('/userinfo', utils)
                     if(user && user.data.code === 200) {
                         commit('SET_USER', user.data)
-                        this.$router.push('/users/')
                     }
                 }
             } catch (error) {
