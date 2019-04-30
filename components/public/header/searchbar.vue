@@ -10,7 +10,7 @@
                     <input type="text" 
                         placeholder="800万优惠券，一键搜索~"
                         autocomplete="off"
-                        :class="{'act': isFocus}" 
+                        :class="{'act': (isFocus || search)}"
                         v-model="search" 
                         @focus="focus" 
                         @blur="blur"
@@ -26,8 +26,8 @@
                         <div v-else>
                             <h4>相关热搜：</h4>
                             <ul class="hotshowlist" v-if="showData.length > 0">
-                                <li v-for="(item, idx) in showData" :key="idx">
-                                    <a :href="item.link">{{item.title}}</a>
+                                <li v-for="(item, idx) in showData" :key="idx" @click="seTed(item)">
+                                    <a href="javascript:;">{{ item[0] }}</a>
                                 </li>
                             </ul>
                             <div class="vhotnone" v-else>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import jsonp from 'jsonp'
 export default {
   data () {
     return {
@@ -55,11 +56,7 @@ export default {
             { title: '零食', link: '#'},
             { title: '面膜', link: '#'},
         ],
-        showData: [
-            { title: '标题内容XXX1', link: '#'},
-            { title: '标题内容XXX2', link: '#'},
-            { title: '标题内容XXX3', link: '#'}
-        ]
+        showData: []
     }
   },
   methods: {
@@ -72,7 +69,12 @@ export default {
           }, 100);
       },
       input () {
-          console.log(this.search)
+            jsonp(`https://suggest.taobao.com/sug?area=etao&code=utf-8&callback=data&q=${this.search}`, (err, data) => {
+                if(!err) this.showData = data.result;
+            })
+      },
+      seTed (item) {
+          this.search = item[0];
       }
   },
   computed: {

@@ -3,7 +3,7 @@
     <ul class="web_help w1200">
       <li>
         <a href="#" target="_blank" alt="泡美丽APP下载" title="泡美丽APP下载">
-          <img src="http://www.paomeili.com/upload/webpic/ma_100.png">
+          <img src="@/assets/img/chat.png">
         </a>
       </li>
       <li v-for="(item, idx) in quick" :key="idx">
@@ -22,22 +22,7 @@
       <a :href="item.link" target="_blank" v-for="(item, index) in friendlyLink" :key="index">{{ item.name }}</a>
     </div>
     <ul class="web_pic w1200">
-      <li class="r">
-        <a href="#" 
-          target="_blank" rel="nofollow"><img src="http://www.paomeili.com/upload/webpic/foot_315.gif"></a>
-        <a href="#" 
-          target="_blank" rel="nofollow"><img src="http://www.paomeili.com/upload/webpic/foot_liang.gif"></a>
-        <a href="#" 
-          target="_blank" rel="nofollow"><img src="http://www.paomeili.com/upload/webpic/foot_icp.gif"></a>
-        <a href="#" 
-          target="_blank" rel="nofollow"><img src="http://www.paomeili.com/upload/webpic/foot_zhuce.gif"></a>
-        <a href="#" 
-          target="_blank" rel="nofollow"><img src="http://www.paomeili.com/upload/webpic/foot_safe.gif"></a>
-      </li>
       <li>
-        <p>
-          泡美丽，800万<a href="#">淘宝优惠券</a>免费领取，好便宜！
-        </p>
         {{ notice }}
       </li>
     </ul>

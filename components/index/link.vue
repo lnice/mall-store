@@ -26,55 +26,23 @@
 export default {
     data () {
         return {
-            showLink: [{
-                title: '女装',
-                link: '#',
-                child: [{
-                title: 'T恤',
-                link: '#'
-                },{
-                title: '连衣裙',
-                link: '#'
-                },{
-                title: '阔腿裤',
-                link: '#'
-                },{
-                title: '妈妈装',
-                link: '#'
-                }]
-            },{
-                title: '鞋子',
-                link: '#',
-                child: [{
-                title: '小白鞋',
-                link: '#'
-                },{
-                title: '运动鞋',
-                link: '#'
-                },{
-                title: '男鞋',
-                link: '#'
-                },{
-                title: '女鞋',
-                link: '#'
-                }]
-            },{
-                title: '包包',
-                link: '#',
-                child: [{
-                title: '行李箱',
-                link: '#'
-                },{
-                title: '斜挎包',
-                link: '#'
-                },{
-                title: '双肩包',
-                link: '#'
-                },{
-                title: '钱包',
-                link: '#'
-                }]
-            }],
+            // showLink: [{
+            //     title: '女装',
+            //     link: '#',
+            //     child: [{
+            //     title: 'T恤',
+            //     link: '#'
+            //     },{
+            //     title: '连衣裙',
+            //     link: '#'
+            //     },{
+            //     title: '阔腿裤',
+            //     link: '#'
+            //     },{
+            //     title: '妈妈装',
+            //     link: '#'
+            //     }]
+            // }],
             showAdvert: {
                 time: '0:00',
                 new: 516,
@@ -82,7 +50,8 @@ export default {
                 hot: 1606
             }
         }
-    }
+    },
+    props: ['showLink']
 }
 </script>
 

@@ -6,7 +6,7 @@
           <banner />
         </el-col>
       </el-row>
-      <banner-link/>
+      <banner-link :showLink="showLink"/>
     </div>
     <div class="w1200">
       <div>
@@ -23,16 +23,16 @@
       </div>
       <div class="index_cat">
         <nuxt-link to="/new" target="_blank">
-          <img src="http://www.paomeili.com/upload/webpic/index_new.jpg">
+          <img src="@/assets/img/index_new.jpg">
         </nuxt-link>
         <nuxt-link to="/hot" target="_blank">
-          <img src="http://www.paomeili.com/upload/webpic/index_hot.jpg">
+          <img src="@/assets/img/index_brand.jpg">
         </nuxt-link>
         <nuxt-link to="/new" target="_blank">
-          <img src="http://www.paomeili.com/upload/webpic/index_jiu.jpg">
+          <img src="@/assets/img/index_jiu.jpg">
         </nuxt-link>
         <nuxt-link to="/new" target="_blank">
-          <img src="http://www.paomeili.com/upload/webpic/index_quan.jpg">
+          <img src="@/assets/img/index_quan.jpg">
         </nuxt-link>
       </div>
       <div class="todayNew">
@@ -40,13 +40,15 @@
           <div class="ring">每天<em>0:00</em>准时上新</div>
         </index-title>
         <template>
-          <listshop :listinfo="listShop.data"/>
+          <listshop :listinfo="(listShopInfo.data ? listShopInfo.data.goods_list : {})"/>
         </template>
         <div class="page-center">
           <el-pagination
           background
           layout="prev, pager, next"
-          :total="listShop.total">
+          :total="(listShopInfo.data ? listShopInfo.data.total_count : 1)"
+          :page-size="pageSize"
+          @current-change="changePage">
           </el-pagination>
           <br />
         </div>
@@ -67,13 +69,6 @@ import axios from 'axios'
 
 export default {
   data () {
-    // axios.get(`${process.env.BASE_URL}/goodslists/1/10/1/volume/desc`).then((data) => {
-    //   if(data.status === 200) {
-        
-    //   }
-    // }).catch((err) => {
-    //   console.log(err)
-    // })
     return {
       imstLink: [{
         name: '今日上新',
@@ -85,16 +80,8 @@ export default {
         name: '品牌优惠券',
         link: '/brand'
       }],
-      choiceLink: [{
-        name: '优惠专题',
-        link: '/new'
-      },{
-        name: '优惠券头条',
-        link: '/hot'
-      },{
-        name: '优惠券百科',
-        link: '/brand'
-      }],
+      pageSize: 40,
+      listShopInfo: {},
       listChoiceInfo: [{
         oImg: 'http://img.alicdn.com/imgextra/i4/2973632120/O1CN01O2RKGo1RX09CqjcCg_!!2973632120.jpg_400x400.jpg',
         title: '4月4日—精选90款春夏睡衣，透气舒适好看~',
@@ -108,47 +95,43 @@ export default {
         title: '4月2日—精选100款阔腿裤，舒适透气，时尚范~',
         link: '/detail/1891'
       }],
-      listShop: {
-        total: 100,
-        data: [{
-          oImg: 'http://img.alicdn.com/imgextra/i3/2024058652/TB2fb1fdMfH8KJjy1zcXXcTzpXa_!!2024058652.jpg_300x300.jpg',
-          title: '苹果通用弯头数据线1.2m*2条装',
-          link: '/detail/54116',
-          rateLink: '/detail/5111',
-          costPrice: 24,
-          ratePrice: 14,
-          market: 207114,
-          coupon: 10,
-          source: 'tm',
-          tag: 'new'
-        },{
-          oImg: 'http://img.alicdn.com/imgextra/i2/1063264201/TB2QJW5opkoBKNjSZFEXXbrEVXa_!!1063264201.jpg_300x300.jpg',
-          title: '妃琳卡  持久保湿口红5支礼盒装',
-          link: '/detail/54116',
-          rateLink: '/detail/5111',
-          costPrice: 56,
-          ratePrice: 55,
-          market: 207114,
-          coupon: 5,
-          source: 'tb',
-          tag: 'brand'
-        }]
-      }
     }
   },
   async asyncData (context) {
-      let { data } = await axios({
-        method: 'post',
-        url: `/goodslists`,
-        data: {
-          page: 1,
-          pageSize: 10,
-        }
-      });
-      console.log(data.data.goods_list)
+      // 今日必抢
+      let lsi_data = await axios.post('/goodslists', {
+            page: 1,
+            pageSize: 6,
+          });
+      // 分类链接
+      let col_data = await axios.get('/getCategory');
+      // 今日精选
+      // let choice_data = await axios.post('')
       return {
-        listSmallInfo :  data.data.goods_list
+        listSmallInfo :  lsi_data.data.data.goods_list,
+        showLink: col_data.data.data,
       }
+  },
+  beforeCreate () {
+      axios.post('/goodslists', {
+        pageSize: this.pageSize
+      }).then(({ data }) => {
+        this.listShopInfo = data;
+      }).catch((err) => {
+        console.log(err)
+      });
+  },
+  methods: {
+    changePage (page) {
+      axios.post('/goodslists', {
+        page,
+        pageSize: this.pageSize,
+      }).then(({ data }) => {
+        this.listShopInfo = data;
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
   },
   components: {
     banner,

@@ -14,7 +14,6 @@
 <script>
 import leftNavBar from '@/components/users/left/index.vue'
 import axios from 'axios'
-import Cookie from 'js-cookie'
 export default {
     middleware: 'userAuth',
     async asyncData ({ app, store, params }) {

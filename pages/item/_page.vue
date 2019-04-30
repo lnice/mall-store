@@ -3,12 +3,14 @@
         <inbanner :img="oDataInfo.oImg"/>
         <div class="w1200">
             <inmenu :menu="menuLinks"/>
-            <list-shop :listinfo="oDataInfo.listShop.data"/>
+            <listshop :listinfo="(listShopInfo.data ? listShopInfo.data.goods_list : {})"/>
             <div class="page-center">
                 <el-pagination
                 background
                 layout="prev, pager, next"
-                :total="oDataInfo.listShop.total">
+                :total="(listShopInfo.data ? listShopInfo.data.total_count : 1)"
+                :page-size="pageSize"
+                @current-change="changePage">
                 </el-pagination>
                 <br />
             </div>
@@ -19,7 +21,8 @@
 <script>
 import inbanner from '@/components/public/show/inbanner.vue'
 import inmenu from '@/components/public/show/inmenu.vue'
-import listShop from '@/components/list/listshop.vue'
+import listshop from '@/components/list/listshop.vue'
+import axios from 'axios'
 export default {
     validate ({ params }) {
         return params.page
@@ -42,32 +45,6 @@ export default {
                     data.oImg = 'http://pic.paomeili.com/cat_new.jpg'
                     break;
             }
-            data.listShop = {
-                    total: 100,
-                    data: [{
-                        oImg: 'http://img.alicdn.com/imgextra/i3/2024058652/TB2fb1fdMfH8KJjy1zcXXcTzpXa_!!2024058652.jpg_300x300.jpg',
-                        title: '苹果通用弯头数据线1.2m*2条装',
-                        link: '/detail/54116',
-                        rateLink: '/detail/5111',
-                        costPrice: 24,
-                        ratePrice: 14,
-                        market: 207114,
-                        coupon: 10,
-                        source: 'tm',
-                        tag: 'new'
-                    },{
-                        oImg: 'http://img.alicdn.com/imgextra/i2/1063264201/TB2QJW5opkoBKNjSZFEXXbrEVXa_!!1063264201.jpg_300x300.jpg',
-                        title: '妃琳卡  持久保湿口红5支礼盒装',
-                        link: '/detail/54116',
-                        rateLink: '/detail/5111',
-                        costPrice: 56,
-                        ratePrice: 55,
-                        market: 207114,
-                        coupon: 5,
-                        source: 'tb',
-                        tag: 'brand'
-                    }]
-                }
             return data
         }
     },
@@ -109,12 +86,35 @@ export default {
             },{
                 title: '数码',
                 link: '/item/rical'
-            },]
+            },],
+            pageSize: 40,
+            listShopInfo: {},
+        }
+    },
+    beforeCreate () {
+        axios.post('/goodslists', {
+            pageSize: this.pageSize
+        }).then(({ data }) => {
+            this.listShopInfo = data;
+        }).catch((err) => {
+            console.log(err)
+        });
+    },
+    methods: {
+        changePage (page) {
+            axios.post('/goodslists', {
+            page,
+            pageSize: this.pageSize,
+            }).then(({ data }) => {
+            this.listShopInfo = data;
+            }).catch((err) => {
+            console.log(err)
+            })
         }
     },
     components: {
         inbanner,
-        listShop,
+        listshop,
         inmenu
     }
 }

@@ -66,7 +66,6 @@ const store = () => new Vuex.Store({
                 Cookie.remove('token')
                 Cookie.remove('uid')
                 commit('SET_USER', null)
-                this.$router.push('/')
             }
         }
     }
