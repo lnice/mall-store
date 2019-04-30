@@ -33,8 +33,8 @@ export default {
     data () {
         return {
           user: {
-            mobile: '16607974217',
-            password: '123456',
+            mobile: '',
+            password: '',
           },
           rules: {
             mobile: [

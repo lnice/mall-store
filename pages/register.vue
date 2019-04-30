@@ -42,10 +42,10 @@ export default {
     data () {
         return {
           user: {
-            mobile: '15768983252',
-            password: '123456',
-            repass: '123456',
-            code: '1234',
+            mobile: '',
+            password: '',
+            repass: '',
+            code: '',
             invite_code: ''
           },
           rules: {
