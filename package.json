@@ -23,7 +23,7 @@
     "element-ui": "^2.4.11",
     "js-cookie": "^2.2.0",
     "koa": "^2.6.2",
-    "nuxt": "^2.4.0"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
